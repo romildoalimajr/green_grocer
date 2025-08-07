@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:green_grocer/src/config/custom_colors.dart';
 import 'package:green_grocer/src/pages/home/components/category_tile.dart';
 import 'package:green_grocer/src/config/app_data.dart' as app_data;
+import 'package:green_grocer/src/pages/home/components/item_tile.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -109,6 +110,23 @@ class _HomeTabState extends State<HomeTab> {
             ),
           ),
           //grid
+          Expanded(
+            child: GridView.builder(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              physics: const BouncingScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 9 / 11.5,
+              ),
+              itemCount: app_data.items.length,
+              itemBuilder: (_, index) {
+                return ItemTile(item: app_data.items[index]);
+                ;
+              },
+            ),
+          ),
         ],
       ),
     );
