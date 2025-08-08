@@ -123,7 +123,6 @@ class _HomeTabState extends State<HomeTab> {
               itemCount: app_data.items.length,
               itemBuilder: (_, index) {
                 return ItemTile(item: app_data.items[index]);
-                ;
               },
             ),
           ),
